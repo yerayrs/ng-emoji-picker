@@ -141,7 +141,7 @@
 	})();
 
 	util.insertAtCursor = function(text, el) {
-		text = ' ' + text;
+		text = text;
 		var val = el.value, endIndex, startIndex, range;
 		if (typeof el.selectionStart != 'undefined'
 				&& typeof el.selectionEnd != 'undefined') {
