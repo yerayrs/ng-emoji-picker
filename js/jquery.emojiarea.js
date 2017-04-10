@@ -30,7 +30,7 @@
 	 	   Backspace, Tab, Ctrl, Alt, Left Arrow, Up Arrow, Right Arrow, Down Arrow, Cmd Key, Delete
 	*/
 	var MAX_LENGTH_ALLOWED_KEYS = [8, 9, 17, 18, 37, 38, 39, 40, 91, 46];
-	
+
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 	/*
@@ -50,7 +50,6 @@
 
 	$.fn.emojiarea = function(options) {
 		options = $.extend({}, options);
-		console.log(options);
 		return this
 			.each(function () {
 				var originalInput = $(this);
@@ -261,14 +260,14 @@
 		return '<img src="' + blankGifPath + '" class="img" style="'
 				+ style + '" alt="' + util.htmlEntities(name) + '">';
 	};
-	
+
 	$.emojiarea.createIcon = EmojiArea.createIcon;
 	/* ! MODIFICATION END */
 
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 	/**
 	 * Editor (plain-text)
-	 * 
+	 *
 	 * @constructor
 	 * @param {object}
 	 *            $textarea
@@ -378,7 +377,7 @@
 
 	/**
 	 * Emoji Dropdown Menu
-	 * 
+	 *
 	 * @constructor
 	 * @param {object}
 	 *            emojiarea
@@ -426,12 +425,12 @@
 		 * ! MODIFICATION: Following 3 lines were added by Igor Zhukov, in order
 		 * to add scrollbars to EmojiMenu
 		 */
-		
+
 		  if (!Config.Mobile) {
 		  this.$itemsWrap.nanoScroller({preventPageScrolling: true, tabIndex:
 		  -1}); }
-		 
-		
+
+
 		//this.$itemsWrap.nanoScroller({preventPageScrolling: true, tabIndex:* -1});
 
 		$body.on('keydown', function(e) {
@@ -532,12 +531,12 @@
 		this.currentCategory = category;
 		this.load(category);
 
-		
+
 		 if (!Config.Mobile) { this.$itemsWrap.nanoScroller({ scroll: 'top'
 		 }); }
-		 
-		 
-		 
+
+
+
 	};
 	/* ! MODIFICATION END */
 
@@ -571,10 +570,10 @@
 		var updateItems = function() {
 			self.$items.html(html.join(''));
 
-			
+
 			  if (!Config.Mobile) { setTimeout(function () {
 			  self.$itemsWrap.nanoScroller(); }, 100); }
-			 
+
 		}
 
 		if (category > 0) {
@@ -634,7 +633,6 @@
   };
 
   EmojiMenu.prototype.show = function(emojiarea) {
-  	console.log(emojiarea)
     /*
      * MODIFICATION: Following line was modified by Igor Zhukov, in order to
      * improve EmojiMenu behaviour
@@ -664,17 +662,14 @@
 	ngEmojiPicker.directive('emojiPicker',function($parse){
 	  return{
 	    link: function(scope, element, attrs){
-	      console.log(attrs)
 	      var emojiAttachmentLocation = attrs["emojiAttachmentLocation"] || "bottom right";
 	      var emojiMenuLocation = attrs["emojiMenuLocation"] || "top left";
-	      console.log(emojiAttachmentLocation)
-	      console.log(emojiMenuLocation)
 	      window.emojiPicker = new EmojiPicker({
 	        emojiable_selector: '[emoji-picker="emoji-picker"]',
 	        assetsPath: '/assets/images/ng-emoji-picker',
 	        popupButtonClasses: 'fa fa-smile-o',
 	        emojiAttachmentLocation: emojiAttachmentLocation ,
-	        emojiMenuLocation: emojiMenuLocation 
+	        emojiMenuLocation: emojiMenuLocation
 	      });
 	      // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
 	      // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
